@@ -284,14 +284,14 @@ const OmikujiPopup = ({ name, onTriggerClickSound, onResult, onReset }) => {
 
   // 投稿用URLを生成する関数
   const generateTweetUrl = () => {
-    const siteUrl = "https://your-site-url.com"; // あなたのサイトのURL
+    const siteUrl = "https://omikuji-neo.vercel.app/"; // あなたのサイトのURL
     const tweetText = encodeURIComponent(`
     【おみくじ結果】
     ${name}さんの2025年の運勢: ${result} 🎉
     総合点: ${totalScore}点
     仕事運: ${scores.job}, 恋愛運: ${scores.love}, 金運: ${scores.money}, プライベート運: ${scores.private}, 願い叶う運: ${scores.wish}
   
-    この占いはフィクションです。
+    新年の運試しに！
     詳細はこちら: ${siteUrl}
     #手作りおみくじ
   `);

@@ -22,7 +22,7 @@
 
 /* POPUP内のコンテンツ */
 .popup-content {
-  margin-top: 40px;
+  margin-top: 120px;
   background-color: white;
   padding: 30px;
   border-radius: 15px;
@@ -343,6 +343,8 @@
   animation: text-glow 1.5s infinite;
   /* 光るようなアニメーション */
   gap: 50px;
+  margin-top: 5px;
+    /* ここで位置を調整 */
 }
 
 /* 小さい画面（タブレット）向け */
