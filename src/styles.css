@@ -308,8 +308,8 @@
 
 /* デコレーション画像 */
 .decor-image {
-  width: 270px;
-  height: 270px;
+  width: 250px;
+  height: 250px;
   object-fit: contain;
   margin-top: 0%;
 }
