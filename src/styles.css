@@ -299,7 +299,8 @@
   border: none;
   border-radius: 5px;
   margin-right: 20px;
-  width: 200px;
+  width: 130px;
+  height: 40px;
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -791,7 +792,7 @@
     font-family: 'Yuji Boku', serif;
   transform: translate(-50%, -50%);
   /* 中央に配置 */
-  font-size: 3.5rem;
+  font-size: 5rem;
   /* メッセージのフォントサイズ */
   color: #9ce920;
   /* 白色 */

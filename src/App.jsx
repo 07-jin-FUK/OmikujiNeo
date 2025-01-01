@@ -55,7 +55,11 @@ function App() {
         <div className="welcome-screen" onClick={handleWelcomeClick}>
           <div className="welcome-overlay">
             <img src="/hebi.png" alt="Welcome" className="welcome-image" />
-            <p className="welcome-message">タップ or クリック！</p>
+            <p className="welcome-message">
+              タップ
+              <br /> or
+              <br /> クリック！
+            </p>
           </div>
         </div>
       )}
