@@ -1,0 +1,841 @@
+/* 干支選択画面のコンテナ */
+.eto-container {
+  text-align: center;
+
+}
+
+/* 全体背景としてのPOPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* 背景の半透明効果 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+ overflow-y: auto;
+}
+
+/* POPUP内のコンテンツ */
+.popup-content {
+  margin-top: 40px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* 影効果 */
+  text-align: center;
+  animation: popup-fade-in 0.6s;
+  /* フェードインアニメーション */
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  max-width: 450px;
+  width: 90%;
+}
+
+/* POPUP内のコンテンツ */
+.popup-content2 {
+
+  padding: 30px;
+  border-radius: 15px;
+
+  text-align: center;
+  animation: popup-fade-in 0.6s;
+  /* フェードインアニメーション */
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  max-width: 400px;
+  width: 90%;
+}
+
+/* クリック！の特別なスタイル */
+.popup-content h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #4caf50;
+  /* 緑色 */
+  margin: 0;
+  animation: text-pulse 1.5s infinite;
+  /* テキストの脈動アニメーション */
+}
+
+/* 結果の特別なスタイル */
+.popup-content h2:nth-child(2) {
+  color: #ff5722;
+  /* 結果テキスト用のオレンジ色 */
+}
+
+/* ボタンのスタイル */
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+/* フェードインアニメーション */
+@keyframes popup-fade-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* テキストの脈動アニメーション */
+@keyframes text-pulse {
+  0% {
+    transform: scale(1);
+    color: #4caf50;
+  }
+
+  50% {
+    transform: scale(1.1);
+    color: #81c784;
+  }
+
+  100% {
+    transform: scale(1);
+    color: #4caf50;
+  }
+}
+
+/* 背景画像や装飾を追加 */
+.popup-content:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+  .popup-content {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .popup-content h2 {
+    font-size: 18px;
+  }
+
+  .close-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* 全体背景としてのPOPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/鳥居.jpg') no-repeat center center/contain;
+  /* 初期の背景画像 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background 1.5s ease-in-out;
+}
+
+/* ズーム中の背景 */
+.zoom-background {
+  background: url('/鳥居結果.png') no-repeat center center/cover;
+  /* 切り替わる画像 */
+  animation: zoom-in 1.5s ease-in-out forwards, white-out 1s 1.5s forwards;
+}
+
+/* 中央のクリック文字 */
+.click-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  animation: text-fade 1.5s ease-in-out infinite;
+}
+
+/* ホワイトアウト */
+@keyframes white-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    background-color: white;
+  }
+}
+
+/* ズームインアニメーション */
+@keyframes zoom-in {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+  }
+}
+
+/* テキストのフェードアニメーション */
+@keyframes text-fade {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* 結果POPUPのボタン */
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+/* 干支選択画面のコンテナ */
+.eto-container {
+  position: fixed;
+  /* 背景を画面全体に表示 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/鳥居.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+/* ボタンのスタイル */
+.eto-submit-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.eto-submit-button:hover {
+  background-color: #45a049;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+  .eto-container {
+    padding: 10px;
+  }
+
+  .eto-select {
+    width: 80%;
+  }
+
+  .eto-submit-button {
+    font-size: 16px;
+  }
+}
+
+
+/* 入力フォームと画像を横並びに配置 */
+.input-container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/* 名前入力欄 */
+.name-input {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 20px;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* デコレーション画像 */
+.decor-image {
+  width: 270px;
+  height: 270px;
+  object-fit: contain;
+  margin-top: 0%;
+}
+
+/* ボタンスタイル */
+.eto-submit-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.eto-submit-button:hover {
+  background-color: #45a049;
+}
+
+/* 謹賀新年の文字スタイル */
+.eto-container h1 {
+  font-size: 80px;
+  /* デフォルト文字サイズ */
+  font-family: 'Yuji Boku', serif;
+  /* 和風なフォントを使用 */
+  color: #dff0c5;
+  /* 金色っぽい文字色 */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  /* 文字の影 */
+  margin-bottom: 10px;
+  animation: text-glow 1.5s infinite;
+  /* 光るようなアニメーション */
+  gap: 50px;
+}
+
+/* 小さい画面（タブレット）向け */
+@media (max-width: 768px) {
+  .eto-container h1 {
+    font-size: 60px;
+    /* 少し小さくする */
+  }
+}
+
+/* さらに小さい画面（スマートフォン）向け */
+@media (max-width: 480px) {
+  .eto-container h1 {
+    font-size: 40px;
+    /* スマホ用にさらに小さくする */
+  }
+}
+
+/* 光るアニメーション */
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.8), 0 0 10px rgba(255, 204, 0, 0.6);
+  }
+
+  50% {
+    text-shadow: 0 0 15px rgba(255, 204, 0, 1), 0 0 20px rgba(255, 204, 0, 0.8);
+  }
+
+  100% {
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.8), 0 0 10px rgba(255, 204, 0, 0.6);
+  }
+}
+
+/* 全体背景 */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/鳥居.jpg') no-repeat center center/cover;
+  /* 初期の背景画像 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background 1.5s ease-in-out;
+}
+
+/* ズーム中の背景 */
+.zoom-background {
+  background: url('/鳥居結果.png') no-repeat center center/cover;
+  /* ズーム時の画像 */
+  animation: zoom-in 2s ease-in-out forwards, white-out 1s 2.5s forwards;
+}
+
+/* 中央のクリック文字 */
+.click-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  animation: text-pulse 1.5s ease-in-out infinite;
+}
+
+/* ズームインアニメーション */
+@keyframes zoom-in {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+  }
+}
+
+/* ホワイトアウトアニメーション */
+@keyframes white-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    background-color: white;
+  }
+}
+
+/* 結果POPUPの背景 */
+.result-background {
+  background: url('/結果.jpg') no-repeat center center/cover;
+}
+
+/* POPUP内のコンテンツ */
+.popup-content {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+}
+
+/* 結果POPUPのボタン */
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+/* ====================
+  POPUP関連スタイル
+==================== */
+
+/* 全体背景としてのPOPUP */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* ズーム中の背景 */
+.zoom-background {
+  background: url('/鳥居結果.png') no-repeat center center/cover;
+  animation: zoom-in 2s ease-in-out forwards, white-out 1s 2s forwards;
+}
+
+/* 結果POPUPの背景 */
+.result-background {
+  background: url('/結果.jpg') no-repeat center center/cover;
+}
+
+/* POPUP内のコンテンツ */
+.popup-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+  max-width: 400px;
+  width: 90%;
+  animation: popup-fade-in 0.6s;
+  overflow-y: auto;
+    overflow-x: auto;
+}
+
+/* テキストのスタイル */
+.click-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  animation: text-pulse 1.5s ease-in-out infinite;
+}
+
+.result-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.result-comment {
+  font-size: 18px;
+  color: #555;
+}
+
+/* ボタンのスタイル */
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #d32f2f;
+}
+
+/* ====================
+  アニメーション
+==================== */
+
+/* フェードインアニメーション */
+@keyframes popup-fade-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* テキストの脈動アニメーション */
+@keyframes text-pulse {
+  0% {
+    transform: scale(1);
+    color: #4caf50;
+  }
+
+  50% {
+    transform: scale(1.1);
+    color: #81c784;
+  }
+
+  100% {
+    transform: scale(1);
+    color: #4caf50;
+  }
+}
+
+/* ズームインアニメーション */
+@keyframes zoom-in {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+  }
+}
+
+/* ホワイトアウトアニメーション */
+@keyframes white-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    background-color: white;
+  }
+}
+
+/* ====================
+  レスポンシブ対応
+==================== */
+@media (max-width: 768px) {
+  .popup-content {
+    padding: 15px;
+  }
+
+  .result-text {
+    font-size: 20px;
+  }
+
+  .result-comment {
+    font-size: 16px;
+  }
+
+  .close-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 10px;
+  }
+
+  .result-text {
+    font-size: 18px;
+  }
+
+  .result-comment {
+    font-size: 14px;
+  }
+
+  .close-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* X投稿ボタン */
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1da1f2;
+  /* Xのテーマカラー */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #0d8ecf;
+}
+
+/* 星のスタイル */
+.star {
+  font-size: 20px;
+  margin: 0 2px;
+}
+
+.star.filled {
+  color: gold;
+}
+
+.star.half {
+  color: gray;
+}
+
+.score-section {
+  text-align: left;
+  /* 左揃えに設定 */
+  margin-left: 80px;
+  /* 全体を少し右にオフセット */
+}
+
+/* スコアセクション */
+.score-section p {
+  font-size: 18px;
+  margin: 1px 0;
+  color: #333;
+}
+
+/* 結果コメント */
+.result-comment {
+  font-size: 20px;
+  font-weight: bold;
+  color: #666;
+  margin-top: 20px;
+  line-height: 1.4;
+}
+
+.post-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1da1f2;
+  /* Twitterカラー */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  /* リンクの下線を削除 */
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.post-button:hover {
+  background-color: #1a91da;
+}
+
+.lucky-item {
+  font-size: 1.4em;
+  color: #ffa500;
+  /* オレンジ色 */
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* スコア表示のコンテナ */
+.star-container {
+  display: flex;
+  justify-content: flex-start;
+  /* 左揃え */
+  align-items: center;
+  gap: 2px;
+  /* 星とスコアの間の余白 */
+  margin-left: 10px;
+}
+
+/* 星のスタイル */
+.star {
+  font-size: 1.5em;
+  color: #ffd700;
+  /* ゴールドカラー */
+}
+
+.star.half {
+  color: #908040;
+  /* 半星用の色 */
+}
+
+/* スコアのスタイル */
+.score {
+  font-size: 1em;
+  color: #333;
+  /* スコアの色 */
+  margin-left: 10px;
+  /* スコアと星の間の余白 */
+}
+/* ウェルカム画面 */
+.welcome-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  /* 背景色 */
+  animation: fade-in 2s ease-in-out;
+  /* フェードインアニメーション */
+  cursor: pointer;
+  /* クリック可能 */
+  position: relative;
+  /* 重ね合わせ用 */
+}
+
+.welcome-overlay {
+  position: relative;
+  text-align: center;
+  /* テキストを中央揃え */
+}
+
+.welcome-image {
+  width: 80%;
+  max-width: 500px;
+  animation: scale-in 2s ease-in-out;
+  /* 拡大表示のアニメーション */
+}
+
+.welcome-message {
+  position: absolute;
+  top: 60%;
+  left: 53%;
+  width: 600px;
+    font-family: 'Yuji Boku', serif;
+  transform: translate(-50%, -50%);
+  /* 中央に配置 */
+  font-size: 3.5rem;
+  /* メッセージのフォントサイズ */
+  color: #9ce920;
+  /* 白色 */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  /* 文字の影 */
+  animation: fade-in 2s ease-in-out;
+  /* フェードインアニメーション */
+    animation: text-glow 1.5s infinite;
+}
+
+/* フェードインアニメーション */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* 拡大表示アニメーション */
+@keyframes scale-in {
+  from {
+    transform: scale(0.8);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.reset-button {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reset-button:hover {
+  background-color: #0056b3;
+}
